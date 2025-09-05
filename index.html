@@ -1,1132 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-Trade Business Software: Strategic Analysis for Scalable Field Service Management</title>
+    <title>BreezeFix HVAC | Working with us is a breeze</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Canela:wght@300;400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #2563eb;
-            --secondary: #64748b;
-            --accent: #f59e0b;
-            --text-primary: #1e293b;
-            --text-secondary: #475569;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600566752229-250ed79470c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 70vh;
         }
         
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-            line-height: 1.6;
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
         
-        .canela {
-            font-family: 'Canela', serif;
-        }
-        
-        .hero-overlay {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
-        }
-        
-        .toc-fixed {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 280px;
-            height: 100vh;
-            background: var(--bg-primary);
-            border-right: 1px solid #e2e8f0;
-            z-index: 1000;
-            overflow-y: auto;
-            padding: 2rem 1.5rem;
-        }
-        
-        .main-content {
-            margin-left: 280px;
-            min-height: 100vh;
-        }
-        
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-            min-height: 60vh;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                min-height: auto;
-            }
-        }
-        
-        .comparison-card {
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .comparison-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .rating-stars {
-            color: var(--accent);
-        }
-        
-        .highlight-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-left: 4px solid var(--accent);
-        }
-        
-        .toc-link {
-            transition: all 0.2s ease;
-        }
-        
-        .toc-link:hover {
-            color: var(--primary);
-            padding-left: 0.5rem;
-        }
-        
-        .data-point {
-            background: var(--bg-secondary);
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 0.5rem 0;
-        }
-        
-        @media (max-width: 1024px) {
-            .toc-fixed {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-            
-            .toc-fixed.open {
-                transform: translateX(0);
-            }
-            
-            .main-content {
-                margin-left: 0;
-            }
-            
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .toc-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.5);
-                z-index: 999; /* below the TOC which is 1000 */
-                display: none;
-            }
-            
-            .toc-overlay.active {
-                display: block;
-            }
-            
-            /* Adjust hero section for mobile */
-            .hero-grid h1 {
-                font-size: 2.25rem; /* 36px */
-                line-height: 2.5rem; /* 40px */
-            }
-            
-            .hero-grid p.text-xl {
-                font-size: 1rem; /* 16px */
-            }
-            
-            .hero-grid img {
-                height: auto;
-                max-height: 300px;
-            }
-            
-            /* Prevent horizontal overflow */
-            body {
-                overflow-x: hidden;
-            }
-            
-            /* Ensure text wraps in hero section */
-            .hero-grid h1,
-            .hero-grid p {
-                word-wrap: break-word;
-            }
+        .contact-input:focus {
+            outline: 2px solid #ef4444;
         }
     </style>
-  </head>
-
-  <body class="bg-gray-50">
-    <!-- Table of Contents -->
-    <nav class="toc-fixed">
-      <div class="mb-6">
-        <h3 class="canela text-lg font-bold text-gray-900 mb-4">Contents</h3>
-        <div class="space-y-2 text-sm">
-          <a href="#executive-summary" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Executive Summary</a>
-          <a href="#fieldpulse-analysis" class="toc-link block py-1 text-gray-600 hover:text-blue-600">FieldPulse Analysis</a>
-          <a href="#jobber-analysis" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Jobber Analysis</a>
-          <a href="#servicetitan-analysis" class="toc-link block py-1 text-gray-600 hover:text-blue-600">ServiceTitan Analysis</a>
-          <a href="#comparative-overview" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Comparative Overview</a>
-          <a href="#implementation-roadmap" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Implementation Roadmap</a>
-          <a href="#final-recommendation" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Final Recommendation</a>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-wind text-red-600 text-3xl mr-2"></i>
+                <a href="#" class="text-2xl font-bold text-red-600">BreezeFix</a>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-800 hover:text-red-600 font-medium">Home</a>
+                <a href="#services" class="text-gray-800 hover:text-red-600 font-medium">Services</a>
+                <a href="#about" class="text-gray-800 hover:text-red-600 font-medium">About</a>
+                <a href="#contact" class="text-gray-800 hover:text-red-600 font-medium">Contact</a>
+            </div>
+            
+            <button class="md:hidden text-gray-800 focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
         </div>
-      </div>
-
-      <div class="mt-8 p-4 bg-blue-50 rounded-lg">
-        <h4 class="font-semibold text-blue-900 mb-2">Key Findings</h4>
-        <ul class="text-xs text-blue-800 space-y-1">
-          <li>• FieldPulse: 4.7/5 ⭐</li>
-          <li>• Jobber: 4.5/5 ⭐</li>
-          <li>• Open API Access Critical</li>
-          <li>• Multi-Trade Scalability</li>
-        </ul>
-      </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full px-4 py-2" id="mobile-menu">
+            <a href="#home" class="block py-2 text-gray-800 hover:text-red-600">Home</a>
+            <a href="#services" class="block py-2 text-gray-800 hover:text-red-600">Services</a>
+            <a href="#about" class="block py-2 text-gray-800 hover:text-red-600">About</a>
+            <a href="#contact" class="block py-2 text-gray-800 hover:text-red-600">Contact</a>
+        </div>
     </nav>
 
-    <!-- Mobile TOC Toggle -->
-    <button id="toc-toggle" class="lg:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-lg shadow-lg">
-      <i class="fas fa-bars text-gray-700"></i>
-    </button>
-
-    <!-- Overlay for mobile TOC -->
-    <div id="toc-overlay" class="toc-overlay"></div>
-
-    <!-- Main Content -->
-    <div class="main-content">
-
-      <!-- Executive Summary -->
-      <section id="executive-summary" class="px-4 sm:px-6 md:px-8 py-16 bg-white">
-        <div class="max-w-4xl mx-auto">
-          <div class="highlight-box p-8 rounded-xl mb-12">
-            <h2 class="canela text-3xl font-bold mb-6 text-gray-900">Executive Summary</h2>
-            <div class="prose prose-lg max-w-none">
-              <p class="text-xl text-gray-700 leading-relaxed mb-6">
-                For a small HVAC startup with plans to expand into refrigeration, electrical, and plumbing,
-                <strong class="text-blue-600">FieldPulse</strong> emerges as the optimal software choice. It uniquely balances
-                affordability, user-friendliness, and most critically, powerful customization through an open API in its Enterprise plan.
-              </p>
-              <p class="text-gray-600">
-                This flexibility allows the platform to adapt to the unique workflows of multiple trades, making it a future-proof investment
-                that can scale with your business and prevent the need for costly system migration later on.
-              </p>
+    <!-- Hero Section -->
+    <section id="home" class="hero flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Your Comfort, Our Priority</h1>
+            <p class="text-xl md:text-2xl mb-8">Working with us is a breeze.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Get a Free Quote</a>
+                <a href="tel:+18005551234" class="bg-white hover:bg-gray-100 text-red-600 font-bold py-3 px-6 rounded-lg transition duration-300">
+                    <i class="fas fa-phone mr-2"></i> (800) 555-1234
+                </a>
             </div>
-          </div>
-
-          <!-- Top Contenders Grid -->
-          <div class="grid md:grid-cols-3 gap-8 mb-12">
-            <div class="comparison-card bg-white p-6 rounded-xl">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="canela text-xl font-bold">FieldPulse</h3>
-                <div class="rating-stars">★★★★★ 4.7/5</div>
-              </div>
-              <p class="text-sm text-gray-600 mb-4">Best for future-proofing and customization</p>
-              <ul class="text-sm space-y-2">
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Open API access</li>
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Multi-trade scalability</li>
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Custom workflows</li>
-              </ul>
-            </div>
-
-            <div class="comparison-card bg-white p-6 rounded-xl">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="canela text-xl font-bold">Jobber</h3>
-                <div class="rating-stars">★★★★★ 4.5/5</div>
-              </div>
-              <p class="text-sm text-gray-600 mb-4">Best for ease of use and transparent pricing</p>
-              <ul class="text-sm space-y-2">
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Intuitive interface</li>
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Transparent pricing</li>
-                <li class="flex items-center"><i class="fas fa-times text-red-500 mr-2"></i>Limited API access</li>
-              </ul>
-            </div>
-
-            <div class="comparison-card bg-white p-6 rounded-xl">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="canela text-xl font-bold">ServiceTitan</h3>
-                <div class="rating-stars">★★★★☆ 4.3/5</div>
-              </div>
-              <p class="text-sm text-gray-600 mb-4">Best for large-scale operations</p>
-              <ul class="text-sm space-y-2">
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Enterprise features</li>
-                <li class="flex items-center"><i class="fas fa-times text-red-500 mr-2"></i>High cost</li>
-                <li class="flex items-center"><i class="fas fa-times text-red-500 mr-2"></i>Complex implementation</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Key Decision Factors -->
-          <div class="bg-gray-50 p-8 rounded-xl">
-            <h3 class="canela text-2xl font-bold mb-6">Key Decision Factors</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-              <div class="data-point">
-                <h4 class="font-semibold text-gray-900 mb-2">Price-to-Value</h4>
-                <p class="text-sm text-gray-600">Long-term ROI considering potential migration costs</p>
-              </div>
-              <div class="data-point">
-                <h4 class="font-semibold text-gray-900 mb-2">Average Reviews</h4>
-                <p class="text-sm text-gray-600">G2 and Capterra ratings indicate reliability and support quality</p>
-              </div>
-              <div class="data-point">
-                <h4 class="font-semibold text-gray-900 mb-2">Customization & API</h4>
-                <p class="text-sm text-gray-600">Critical for multi-trade expansion and workflow automation</p>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <!-- FieldPulse Analysis -->
-      <section id="fieldpulse-analysis" class="px-4 sm:px-6 md:px-8 py-16 bg-gray-50">
-        <div class="max-w-6xl mx-auto">
-          <h2 class="canela text-4xl font-bold mb-12 text-center">FieldPulse: Best for Future-Proofing</h2>
-
-          <div class="grid lg:grid-cols-1 gap-12 mb-12">
-            <div class="space-y-6">
-              <div class="bg-white p-6 rounded-xl shadow-sm">
-                <h3 class="canela text-xl font-bold mb-4">Price-to-Value Analysis</h3>
-                <div class="space-y-3">
-                  <div class="flex justify-between items-center py-2 border-b">
-                    <span class="font-medium">Basic Plan</span>
-                    <span class="text-blue-600 font-bold">$79/month</span>
-                  </div>
-                  <div class="flex justify-between items-center py-2 border-b">
-                    <span class="font-medium">Essentials Plan</span>
-                    <span class="text-blue-600 font-bold">$189/month</span>
-                  </div>
-                  <div class="flex justify-between items-center py-2">
-                    <span class="font-medium">Enterprise Plan</span>
-                    <span class="text-blue-600 font-bold">Custom</span>
-                  </div>
-                </div>
-                <p class="text-sm text-gray-600 mt-4">
-                  <a href="#ref-260" class="text-blue-500 hover:underline">[Source: FieldPulse Pricing]</a>
-                </p>
-              </div>
-
-              <div class="bg-white p-6 rounded-xl shadow-sm">
-                <h3 class="canela text-xl font-bold mb-4">User Satisfaction</h3>
-                <div class="flex items-center mb-3">
-                  <div class="rating-stars text-2xl mr-3">★★★★★</div>
-                  <span class="text-2xl font-bold">4.7/5</span>
-                </div>
-                <p class="text-sm text-gray-600">
-                  "FieldPulse saves me hours of time a week and helps get rid of gaps or overlaps in our day-to-day operations"
-                  <span class="block mt-2">— Rachel S., VP of Operations</span>
-                  <a href="#ref-257" class="text-blue-500 hover:underline">[Source: G2 Reviews]</a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Key Features Grid -->
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div class="bg-white p-6 rounded-xl text-center shadow-sm">
-              <i class="fas fa-cogs text-3xl text-blue-600 mb-4"></i>
-              <h4 class="font-bold mb-2">Custom Workflows</h4>
-              <p class="text-sm text-gray-600">Tailor processes for each trade</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl text-center shadow-sm">
-              <i class="fas fa-code text-3xl text-blue-600 mb-4"></i>
-              <h4 class="font-bold mb-2">Open API</h4>
-              <p class="text-sm text-gray-600">Enterprise plan access</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl text-center shadow-sm">
-              <i class="fas fa-users text-3xl text-blue-600 mb-4"></i>
-              <h4 class="font-bold mb-2">Multi-Team Support</h4>
-              <p class="text-sm text-gray-600">Manage diverse service lines</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl text-center shadow-sm">
-              <i class="fas fa-award text-3xl text-blue-600 mb-4"></i>
-              <h4 class="font-bold mb-2">Award Support</h4>
-              <p class="text-sm text-gray-600">8 consecutive seasons</p>
-            </div>
-          </div>
-
-          <!-- Scalability Focus -->
-          <div class="bg-white p-8 rounded-xl shadow-sm">
-            <h3 class="canela text-2xl font-bold mb-6">Scalability for Multi-Trade Expansion</h3>
-            <div class="grid md:grid-cols-2 gap-8">
-              <div>
-                <h4 class="font-semibold mb-4 text-blue-600">Current Capabilities</h4>
-                <ul class="space-y-2 text-sm">
-                  <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>HVAC-focused workflows</li>
-                  <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Basic scheduling and dispatch</li>
-                  <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Customer management</li>
-                  <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Mobile payments</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-semibold mb-4 text-green-600">Future Expansion</h4>
-                <ul class="space-y-2 text-sm">
-                  <li class="flex items-center"><i class="fas fa-arrow-right text-blue-500 mr-2"></i>Electrical service workflows</li>
-                  <li class="flex items-center"><i class="fas fa-arrow-right text-blue-500 mr-2"></i>Plumbing job templates</li>
-                  <li class="flex items-center"><i class="fas fa-arrow-right text-blue-500 mr-2"></i>Refrigeration monitoring</li>
-                  <li class="flex items-center"><i class="fas fa-arrow-right text-blue-500 mr-2"></i>Custom API integrations</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Jobber Analysis -->
-      <section id="jobber-analysis" class="px-4 sm:px-6 md:px-8 py-16 bg-white">
-        <div class="max-w-6xl mx-auto">
-          <h2 class="canela text-4xl font-bold mb-12 text-center">Jobber: Best for Ease of Use</h2>
-
-          <div class="grid lg:grid-cols-2 gap-12">
-            <div class="space-y-8">
-              <div class="bg-gray-50 p-6 rounded-xl">
-                <h3 class="canela text-xl font-bold mb-4">Transparent Pricing Structure</h3>
-                <div class="space-y-4">
-                  <div class="border-l-4 border-blue-500 pl-4">
-                    <h4 class="font-semibold">Core Plan</h4>
-                    <p class="text-2xl font-bold text-blue-600">$39/user/month</p>
-                    <p class="text-sm text-gray-600">Essential features for small teams</p>
-                  </div>
-                  <div class="border-l-4 border-green-500 pl-4">
-                    <h4 class="font-semibold">Connect Plan</h4>
-                    <p class="text-2xl font-bold text-green-600">$119/user/month</p>
-                    <p class="text-sm text-gray-600">Advanced automation features</p>
-                  </div>
-                  <div class="border-l-4 border-purple-500 pl-4">
-                    <h4 class="font-semibold">Grow Plan</h4>
-                    <p class="text-2xl font-bold text-purple-600">$199/user/month</p>
-                    <p class="text-sm text-gray-600">Full feature set for scaling</p>
-                  </div>
-                </div>
-                <p class="text-sm text-gray-600 mt-4">
-                  <a href="#ref-258" class="text-blue-500 hover:underline">[Source: Jobber Pricing]</a>
-                </p>
-              </div>
-            </div>
-
-            <div class="mb-12">
-              <div class="bg-blue-50 p-6 rounded-xl mb-12">
-                <blockquote class="italic text-gray-700">
-                  "Jobber provides a solid, all-in-one solution for core business functions like scheduling,
-                  invoicing, and customer management, making it an excellent tool for establishing foundational operational workflows."
-                </blockquote>
-                <cite class="text-sm text-gray-500 mt-2 block">
-                  — Analysis from <a href="#ref-266" class="text-blue-500 hover:underline">[HVACBase Guide]</a>
-                </cite>
-              </div>
-              <div class="bg-white border rounded-xl p-6 shadow-sm">
-                <h4 class="font-bold mb-4 flex items-center">
-                  <i class="fas fa-star text-yellow-500 mr-2"></i>
-                  User Satisfaction: 4.5/5
-                </h4>
-                <div class="space-y-3">
-                  <div class="flex justify-between items-center">
-                    <span class="text-sm">Ease of Use</span>
-                    <div class="flex items-center">
-                      <div class="w-24 bg-gray-200 rounded-full h-2 mr-2">
-                        <div class="bg-green-500 h-2 rounded-full w-22"></div>
-                      </div>
-                      <span class="text-sm font-medium">4.6</span>
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our HVAC Services</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-snowflake text-red-600 text-6xl"></i>
                     </div>
-                  </div>
-                  <div class="flex justify-between items-center">
-                    <span class="text-sm">Mobile App</span>
-                    <div class="flex items-center">
-                      <div class="w-24 bg-gray-200 rounded-full h-2 mr-2">
-                        <div class="bg-green-500 h-2 rounded-full w-21"></div>
-                      </div>
-                      <span class="text-sm font-medium">4.4</span>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Air Conditioning</h3>
+                        <p class="text-gray-600 mb-4">Professional installation, repair, and maintenance of all AC systems to keep your home cool and comfortable.</p>
+                        <a href="#contact" class="text-red-600 font-medium hover:underline">Learn More</a>
                     </div>
-                  </div>
-                  <div class="flex justify-between items-center">
-                    <span class="text-sm">Customer Support</span>
-                    <div class="flex items-center">
-                      <div class="w-24 bg-gray-200 rounded-full h-2 mr-2">
-                        <div class="bg-green-500 h-2 rounded-full w-20"></div>
-                      </div>
-                      <span class="text-sm font-medium">4.2</span>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-fire text-red-600 text-6xl"></i>
                     </div>
-                  </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Heating Systems</h3>
+                        <p class="text-gray-600 mb-4">Expert heating solutions including furnace repair, boiler service, and complete system installations.</p>
+                        <a href="#contact" class="text-red-600 font-medium hover:underline">Learn More</a>
+                    </div>
                 </div>
-                <p class="text-xs text-gray-500 mt-4">
-                  <a href="#ref-257" class="text-blue-500 hover:underline">[Source: G2 Reviews]</a>
-                </p>
-              </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-fan text-red-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Ventilation</h3>
+                        <p class="text-gray-600 mb-4">Improve your indoor air quality with our comprehensive ventilation and air purification services.</p>
+                        <a href="#contact" class="text-red-600 font-medium hover:underline">Learn More</a>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <!-- Limitations Analysis -->
-          <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-xl">
-            <h4 class="font-bold text-yellow-800 mb-3 flex items-center">
-              <i class="fas fa-exclamation-triangle mr-2"></i>
-              Limitations for Multi-Trade Expansion
-            </h4>
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <h5 class="font-semibold text-yellow-800 mb-2">Customization Constraints</h5>
-                <ul class="text-sm text-yellow-700 space-y-1">
-                  <li>• Limited workflow customization</li>
-                  <li>• Restricted template modifications</li>
-                  <li>• Basic API capabilities</li>
-                </ul>
-              </div>
-              <div>
-                <h5 class="font-semibold text-yellow-800 mb-2">Scalability Concerns</h5>
-                <ul class="text-sm text-yellow-700 space-y-1">
-                  <li>• Per-user pricing escalates quickly</li>
-                  <li>• Complex processes require workarounds</li>
-                  <li>• Potential future migration needed</li>
-                </ul>
-              </div>
-            </div>
-            <p class="text-sm text-yellow-700 mt-4">
-              While excellent for initial phase operations, Jobber's rigid structure may become a bottleneck
-              for complex, cross-trade processes as the business expands.
-              <a href="#ref-259" class="text-blue-600 hover:underline">[Source: ContractorPlus Analysis]</a>
-            </p>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <!-- ServiceTitan Analysis -->
-      <section id="servicetitan-analysis" class="px-4 sm:px-6 md:px-8 py-16 bg-gray-50">
-        <div class="max-w-6xl mx-auto">
-          <h2 class="canela text-4xl font-bold mb-12 text-center">ServiceTitan: Enterprise-Grade Power</h2>
-
-          <div class="grid lg:grid-cols-3 gap-8 mb-12">
-            <div class="lg:col-span-2 space-y-6">
-              <div class="bg-white p-6 rounded-xl shadow-sm">
-                <h3 class="canela text-xl font-bold mb-4 text-red-600">Enterprise Investment Required</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 class="font-semibold mb-3">Monthly Costs</h4>
-                    <div class="text-3xl font-bold text-red-600 mb-2">$125-325</div>
-                    <p class="text-sm text-gray-600">Per technician per month</p>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold mb-3">Implementation Fees</h4>
-                    <div class="text-3xl font-bold text-red-600 mb-2">$5,000+</div>
-                    <p class="text-sm text-gray-600">Upfront setup and training</p>
-                  </div>
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">About BreezeFix</h2>
+                    <p class="text-gray-600 mb-4">Founded in 2010, BreezeFix has been providing top-quality HVAC services to residential and commercial clients throughout the region. Our team of certified technicians brings decades of combined experience to every job.</p>
+                    <p class="text-gray-600 mb-6">We pride ourselves on our commitment to customer satisfaction, transparent pricing, and the highest standards of workmanship. When you choose BreezeFix, you're choosing peace of mind.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-red-600 mr-2"></i>
+                            <span class="text-gray-700">Licensed & Insured</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-red-600 mr-2"></i>
+                            <span class="text-gray-700">24/7 Emergency Service</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-red-600 mr-2"></i>
+                            <span class="text-gray-700">Free Estimates</span>
+                        </div>
+                    </div>
                 </div>
-                <p class="text-sm text-gray-600 mt-4">
-                  <a href="#ref-258" class="text-blue-500 hover:underline">[Source: User Reports]</a>
-                </p>
-              </div>
-
-              <div class="bg-white p-6 rounded-xl shadow-sm">
-                <h3 class="canela text-xl font-bold mb-4">Feature Depth vs. Startup Needs</h3>
-                <div class="space-y-4">
-                  <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
-                    <span class="font-medium">Advanced Analytics</span>
-                    <i class="fas fa-check text-green-600"></i>
-                  </div>
-                  <div class="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
-                    <span class="font-medium">Marketing Automation</span>
-                    <i class="fas fa-exclamation-triangle text-yellow-600"></i>
-                  </div>
-                  <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg">
-                    <span class="font-medium">Complex Setup</span>
-                    <i class="fas fa-times text-red-600"></i>
-                  </div>
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="HVAC Technician at work" class="rounded-lg shadow-lg w-full">
                 </div>
-              </div>
             </div>
-
-            <div>
-              <div class="bg-white p-6 rounded-xl shadow-sm">
-                <h4 class="font-bold mb-4">Best Suited For</h4>
-                <ul class="space-y-2 text-sm">
-                  <li class="flex items-center"><i class="fas fa-building text-blue-500 mr-2"></i>Established companies</li>
-                  <li class="flex items-center"><i class="fas fa-users text-blue-500 mr-2"></i>Large technician teams</li>
-                  <li class="flex items-center"><i class="fas fa-chart-line text-blue-500 mr-2"></i>High-volume operations</li>
-                  <li class="flex items-center"><i class="fas fa-dollar-sign text-blue-500 mr-2"></i>Substantial budgets</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Risk Assessment -->
-          <div class="bg-red-50 border border-red-200 p-8 rounded-xl">
-            <h3 class="canela text-2xl font-bold mb-6 text-red-800">Startup Risk Assessment</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-              <div class="text-center">
-                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i class="fas fa-dollar-sign text-2xl text-red-600"></i>
-                </div>
-                <h4 class="font-bold text-red-800 mb-2">Financial Risk</h4>
-                <p class="text-sm text-red-700">High monthly costs plus implementation fees strain startup budgets</p>
-              </div>
-              <div class="text-center">
-                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i class="fas fa-graduation-cap text-2xl text-red-600"></i>
-                </div>
-                <h4 class="font-bold text-red-800 mb-2">Complexity Risk</h4>
-                <p class="text-sm text-red-700">Steep learning curve may lead to underutilization of features</p>
-              </div>
-              <div class="text-center">
-                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i class="fas fa-clock text-2xl text-red-600"></i>
-                </div>
-                <h4 class="font-bold text-red-800 mb-2">Opportunity Cost</h4>
-                <p class="text-sm text-red-700">Distracts from core growth activities during critical early stages</p>
-              </div>
-            </div>
-            <p class="text-sm text-red-700 mt-6 text-center">
-              While ServiceTitan offers exceptional capabilities, it's more tool than a startup needs in early years
-              and could strain resources better allocated to core business development.
-              <a href="#ref-268" class="text-blue-600 hover:underline">[Source: HubSpot Analysis]</a>
-            </p>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <!-- Comparative Overview -->
-      <section id="comparative-overview" class="px-4 sm:px-6 md:px-8 py-16 bg-white">
-        <div class="max-w-7xl mx-auto">
-          <h2 class="canela text-4xl font-bold mb-12 text-center">Comparative Overview of Other Notable Software</h2>
+    <!-- Testimonials -->
+    <section class="py-16 bg-red-600 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-4 italic">"BreezeFix installed our new AC unit and did an amazing job. They were professional, on time, and cleaned up perfectly after the installation. Highly recommend!"</p>
+                    <p class="font-bold">- Sarah J.</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-4 italic">"When our furnace stopped working in the middle of winter, BreezeFix came out the same day and had it fixed quickly. Their technician was knowledgeable and friendly."</p>
+                    <p class="font-bold">- Michael T.</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-4 italic">"I've been using BreezeFix for annual maintenance on my HVAC system for years. They always do a thorough job and catch potential issues before they become problems."</p>
+                    <p class="font-bold">- Lisa M.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-          <div class="grid lg:grid-cols-2 gap-8 mb-12">
-            <!-- Housecall Pro -->
-            <div class="bg-gray-50 p-8 rounded-xl">
-              <div class="flex items-center justify-between mb-6">
-                <h3 class="canela text-2xl font-bold">Housecall Pro</h3>
-                <div class="rating-stars">★★★★☆ 4.4/5</div>
-              </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Contact Us</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input type="text" id="name" class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-red-600" placeholder="Your Name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-red-600" placeholder="Your Email">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Phone</label>
+                            <input type="tel" id="phone" class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-red-600" placeholder="Your Phone Number">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-gray-700 font-medium mb-2">Service Needed</label>
+                            <select id="service" class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-red-600">
+                                <option value="">Select a service</option>
+                                <option value="ac">Air Conditioning</option>
+                                <option value="heating">Heating</option>
+                                <option value="ventilation">Ventilation</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="4" class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-red-600" placeholder="Your Message"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-100 p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Get in Touch</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-red-600 text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Our Location</h4>
+                                    <p class="text-gray-600">123 Comfort Street<br>Coolville, CA 90210</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-phone text-red-600 text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Call Us</h4>
+                                    <p class="text-gray-600">(800) 555-1234<br>24/7 Emergency Service Available</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-red-600 text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Email Us</h4>
+                                    <p class="text-gray-600">info@breezefix.com<br>We typically respond within 24 hours</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-red-600 text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Business Hours</h4>
+                                    <p class="text-gray-600">
+                                        Monday - Friday: 8:00 AM - 6:00 PM<br>
+                                        Saturday: 9:00 AM - 4:00 PM<br>
+                                        Sunday: Emergency Service Only
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-              <div class="space-y-4">
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                  <h4 class="font-semibold mb-2">Target Audience</h4>
-                  <p class="text-sm text-gray-600">Small to medium service businesses (1-50 users) in plumbing, electrical, HVAC, and related trades</p>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-wind text-red-600 text-3xl mr-2"></i>
+                        <span class="text-2xl font-bold">BreezeFix</span>
+                    </div>
+                    <p class="text-gray-400">Your trusted HVAC partner for all your heating, cooling, and ventilation needs.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
+                
                 <div>
-                  <h4 class="font-semibold mb-2">Pricing</h4>
-                  <div class="space-y-2 text-sm">
-                    <div class="flex justify-between"><span>Basic</span><span class="font-medium">$49/month</span></div>
-                    <div class="flex justify-between"><span>Essentials</span><span class="font-medium">$129/month</span></div>
-                    <div class="flex justify-between"><span>Max</span><span class="font-medium">Custom</span></div>
-                  </div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
                 </div>
+                
                 <div>
-                  <h4 class="font-semibold mb-2">Key Strengths</h4>
-                  <ul class="text-sm text-gray-600 space-y-1">
-                    <li>• User-friendly interface</li>
-                    <li>• Strong mobile capabilities</li>
-                    <li>• Residential market focus</li>
-                    <li>• QuickBooks integration</li>
-                  </ul>
+                    <h4 class="text-lg font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">AC Installation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Heating Repair</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Ventilation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Maintenance</a></li>
+                    </ul>
                 </div>
-              </div>
-              <p class="text-xs text-gray-500 mt-4">
-                <a href="#ref-49" class="text-blue-500 hover:underline">[Source: SoftwareFinder Review]</a>
-              </p>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for tips and special offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your Email" class="px-4 py-2 rounded-l-lg w-full text-gray-800">
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
-
-            <!-- FieldEdge -->
-            <div class="bg-gray-50 p-8 rounded-xl">
-              <div class="flex items-center justify-between mb-6">
-                <h3 class="canela text-2xl font-bold">FieldEdge</h3>
-                <div class="rating-stars">★★★★☆ 4.2/5</div>
-              </div>
-
-              <div class="space-y-4">
-                <div>
-                  <h4 class="font-semibold mb-2">Target Audience</h4>
-                  <p class="text-sm text-gray-600">HVAC, electrical, and plumbing businesses with revenue growth focus</p>
-                </div>
-                <div>
-                  <h4 class="font-semibold mb-2">Key Features</h4>
-                  <ul class="text-sm text-gray-600 space-y-1">
-                    <li>• Smart dispatch board</li>
-                    <li>• Performance dashboards</li>
-                    <li>• Service agreement automation</li>
-                    <li>• Visual price presentations</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 class="font-semibold mb-2">Considerations</h4>
-                  <ul class="text-sm text-gray-600 space-y-1">
-                    <li>• Strong QuickBooks integration</li>
-                    <li>• Limited API documentation</li>
-                    <li>• Complex pricing structure</li>
-                    <li>• Residential service focus</li>
-                  </ul>
-                </div>
-              </div>
-              <p class="text-xs text-gray-500 mt-4">
-                <a href="#ref-68" class="text-blue-500 hover:underline">[Source: Connecteam Review]</a>
-              </p>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 BreezeFix HVAC. All rights reserved.</p>
             </div>
-          </div>
-
-          <!-- Additional Options Grid -->
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-blue-50 p-6 rounded-xl">
-              <h4 class="canela text-lg font-bold mb-4 text-blue-900">Commusoft</h4>
-              <p class="text-sm text-blue-800 mb-4">Robust FSM for diverse trades including gas engineering, renewables, and facility maintenance</p>
-              <div class="space-y-2 text-sm">
-                <div class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Multi-trade support</div>
-                <div class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Automated job assignments</div>
-                <div class="flex items-center"><i class="fas fa-exclamation-triangle text-yellow-600 mr-2"></i>Complex interface for new users</div>
-              </div>
-              <p class="text-xs text-blue-600 mt-3">
-                <a href="#ref-71" class="hover:underline">[Source: SelectHub Review]</a>
-              </p>
-            </div>
-
-            <div class="bg-green-50 p-6 rounded-xl">
-              <h4 class="canela text-lg font-bold mb-4 text-green-900">BuildOps</h4>
-              <p class="text-sm text-green-800 mb-4">Commercial contractor platform with strong asset management for HVAC, plumbing, and electrical</p>
-              <div class="space-y-2 text-sm">
-                <div class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Commercial focus</div>
-                <div class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Advanced asset management</div>
-                <div class="flex items-center"><i class="fas fa-times text-red-600 mr-2"></i>Limited residential support</div>
-              </div>
-              <p class="text-xs text-green-600 mt-3">
-                <a href="#ref-38" class="hover:underline">[Source: SoftwareConnect Review]</a>
-              </p>
-            </div>
-          </div>
         </div>
-      </section>
-
-      <!-- Implementation Roadmap -->
-      <section id="implementation-roadmap" class="px-4 sm:px-6 md:px-8 py-16 bg-gray-50">
-        <div class="max-w-6xl mx-auto">
-          <h2 class="canela text-4xl font-bold mb-12 text-center">Implementation Strategy</h2>
-
-          <!-- Phase 1: Initial Setup -->
-          <div class="bg-white p-8 rounded-xl shadow-sm mb-8">
-            <div class="flex items-center mb-6">
-              <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">1</div>
-              <h3 class="canela text-2xl font-bold">Phase 1: Core Foundation (Months 1-3)</h3>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-              <div>
-                <h4 class="font-bold mb-4 text-blue-600">Start with FieldPulse Essentials</h4>
-                <ul class="space-y-3">
-                  <li class="flex items-start">
-                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Job Scheduling & Dispatch</strong>
-                      <p class="text-sm text-gray-600">Master fundamental scheduling workflows</p>
-                    </div>
-                  </li>
-                  <li class="flex items-start">
-                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Customer Management</strong>
-                      <p class="text-sm text-gray-600">Build comprehensive client profiles</p>
-                    </div>
-                  </li>
-                  <li class="flex items-start">
-                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Mobile App Adoption</strong>
-                      <p class="text-sm text-gray-600">Train technicians on field operations</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 class="font-bold mb-4 text-green-600">Early Integrations</h4>
-                <ul class="space-y-3">
-                  <li class="flex items-start">
-                    <i class="fas fa-link text-blue-500 mr-3 mt-1"></i>
-                    <div>
-                      <strong>QuickBooks Integration</strong>
-                      <p class="text-sm text-gray-600">Automate financial data flow immediately</p>
-                    </div>
-                  </li>
-                  <li class="flex items-start">
-                    <i class="fas fa-headset text-blue-500 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Leverage Support Team</strong>
-                      <p class="text-sm text-gray-600">Schedule training sessions for smooth onboarding</p>
-                    </div>
-                  </li>
-                  <li class="flex items-start">
-                    <i class="fas fa-chart-line text-blue-500 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Basic Reporting Setup</strong>
-                      <p class="text-sm text-gray-600">Establish key performance metrics</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Phase 2: Enterprise Upgrade -->
-          <div class="bg-white p-8 rounded-xl shadow-sm mb-8">
-            <div class="flex items-center mb-6">
-              <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">2</div>
-              <h3 class="canela text-2xl font-bold">Phase 2: Enterprise Transition (Months 6-12)</h3>
-            </div>
-
-            <div class="highlight-box p-6 rounded-xl mb-6">
-              <h4 class="font-bold text-amber-800 mb-3">Upgrade Trigger Points</h4>
-              <div class="grid md:grid-cols-3 gap-4">
-                <div class="text-center">
-                  <i class="fas fa-user-plus text-2xl text-amber-600 mb-2"></i>
-                  <p class="text-sm font-medium">New Trade Hire</p>
-                  <p class="text-xs text-gray-600">First electrician/plumber joins team</p>
-                </div>
-                <div class="text-center">
-                  <i class="fas fa-cogs text-2xl text-amber-600 mb-2"></i>
-                  <p class="text-sm font-medium">Workflow Complexity</p>
-                  <p class="text-xs text-gray-600">Multi-trade coordination required</p>
-                </div>
-                <div class="text-center">
-                  <i class="fas fa-code text-2xl text-amber-600 mb-2"></i>
-                  <p class="text-sm font-medium">Integration Needs</p>
-                  <p class="text-xs text-gray-600">Custom API connections required</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-              <div>
-                <h4 class="font-bold mb-4 text-purple-600">API Integration Priorities</h4>
-                <ul class="space-y-3">
-                  <li class="flex items-start">
-                    <i class="fas fa-database text-purple-500 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Trade-Specific Databases</strong>
-                      <p class="text-sm text-gray-600">Connect electrical/plumbing pricing systems</p>
-                    </div>
-                  </li>
-                  <li class="flex items-start">
-                    <i class="fas fa-bullhorn text-purple-500 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Marketing Automation</strong>
-                      <p class="text-sm text-gray-600">Integrate customer outreach platforms</p>
-                    </div>
-                  </li>
-                  <li class="flex items-start">
-                    <i class="fas fa-chart-bar text-purple-500 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Custom Dashboards</strong>
-                      <p class="text-sm text-gray-600">Create unified performance views</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 class="font-bold mb-4 text-indigo-600">Multi-Trade Optimization</h4>
-                <ul class="space-y-3">
-                  <li class="flex items-start">
-                    <i class="fas fa-sitemap text-indigo-500 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Custom Workflows</strong>
-                      <p class="text-sm text-gray-600">Distinct processes for each trade</p>
-                    </div>
-                  </li>
-                  <li class="flex items-start">
-                    <i class="fas fa-clipboard-list text-indigo-500 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Job Templates</strong>
-                      <p class="text-sm text-gray-600">Standardized forms for each service type</p>
-                    </div>
-                  </li>
-                  <li class="flex items-start">
-                    <i class="fas fa-shield-alt text-indigo-500 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Quality Control</strong>
-                      <p class="text-sm text-gray-600">Consistent data capture across trades</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Alternative Path -->
-          <div class="bg-blue-50 border border-blue-200 p-8 rounded-xl">
-            <h3 class="canela text-xl font-bold mb-4 text-blue-900">Alternative Path: Jobber Start</h3>
-            <p class="text-blue-800 mb-4">
-              For extremely budget-conscious startups needing immediate operations with minimal friction:
-            </p>
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 class="font-semibold text-blue-800 mb-3">Phase 1: Jobber Core</h4>
-                <ul class="text-sm text-blue-700 space-y-1">
-                  <li>• Start at $39/user/month</li>
-                  <li>• Simple, effective HVAC management</li>
-                  <li>• Plan for future migration</li>
-                  <li>• Maintain clean data export strategy</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-semibold text-blue-800 mb-3">Phase 2: Planned Migration</h4>
-                <ul class="text-sm text-blue-700 space-y-1">
-                  <li>• Budget for platform transition</li>
-                  <li>• Regular data exports</li>
-                  <li>• Timing aligned with growth</li>
-                  <li>• Minimize business disruption</li>
-                </ul>
-              </div>
-            </div>
-            <div class="mt-4 p-4 bg-yellow-100 rounded-lg">
-              <p class="text-sm text-yellow-800">
-                <strong>Note:</strong> This approach offers lower initial barriers but includes future migration complexity.
-                FieldPulse's "grow into it" strategy is more efficient for multi-trade vision.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Final Recommendation -->
-      <section id="final-recommendation" class="px-4 sm:px-6 md:px-8 py-16 bg-white">
-        <div class="max-w-4xl mx-auto">
-          <div class="text-center mb-12">
-            <h2 class="canela text-4xl font-bold mb-6">Final Recommendation</h2>
-            <div class="inline-block px-6 py-3 bg-blue-600 text-white rounded-full text-lg font-semibold">
-              FieldPulse: The Strategic Choice for Multi-Trade Growth
-            </div>
-          </div>
-
-          <div class="grid md:grid-cols-1 gap-12 mb-12">
-            <div class="space-y-6">
-              <div class="bg-green-50 p-6 rounded-xl border-l-4 border-green-500">
-                <h3 class="canela text-xl font-bold mb-4 text-green-800">Why FieldPulse Wins</h3>
-                <ul class="space-y-3 text-green-700">
-                  <li class="flex items-start">
-                    <i class="fas fa-check-circle text-green-600 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Future-Proof Architecture</strong>
-                      <p class="text-sm">Open API provides strategic insurance for long-term growth</p>
-                    </div>
-                  </li>
-                  <li class="flex items-start">
-                    <i class="fas fa-check-circle text-green-600 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Multi-Trade Scalability</strong>
-                      <p class="text-sm">Adapts to HVAC, electrical, plumbing, and refrigeration workflows</p>
-                    </div>
-                  </li>
-                  <li class="flex items-start">
-                    <i class="fas fa-check-circle text-green-600 mr-3 mt-1"></i>
-                    <div>
-                      <strong>Cost-Effective Growth</strong>
-                      <p class="text-sm">Prevents costly system migrations as business expands</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12 mb-12">
-              <div class="bg-blue-50 p-6 rounded-xl">
-                <h3 class="canela text-xl font-bold mb-4 text-blue-800">Key Differentiators</h3>
-                <div class="space-y-4">
-                  <div class="flex items-center justify-between p-3 bg-white rounded-lg">
-                    <span class="font-medium">Customization Depth</span>
-                    <div class="flex items-center">
-                      <div class="w-24 bg-gray-200 rounded-full h-2 mr-2">
-                        <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
-                      </div>
-                      <span class="text-sm font-bold">4.5/5</span>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between p-3 bg-white rounded-lg">
-                    <span class="font-medium">API Accessibility</span>
-                    <div class="flex items-center">
-                      <div class="w-24 bg-gray-200 rounded-full h-2 mr-2">
-                        <div class="bg-blue-500 h-2 rounded-full" style="width: 85%"></div>
-                      </div>
-                      <span class="text-sm font-bold">4.3/5</span>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between p-3 bg-white rounded-lg">
-                    <span class="font-medium">Multi-Trade Support</span>
-                    <div class="flex items-center">
-                      <div class="w-24 bg-gray-200 rounded-full h-2 mr-2">
-                        <div class="bg-blue-500 h-2 rounded-full" style="width: 95%"></div>
-                      </div>
-                      <span class="text-sm font-bold">4.7/5</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="bg-amber-50 p-6 rounded-xl border-l-4 border-amber-500">
-                <h3 class="canela text-xl font-bold mb-4 text-amber-800">Investment Timeline</h3>
-                <div class="space-y-4">
-                  <div class="flex items-center">
-                    <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold mr-3">1</div>
-                    <div>
-                      <strong>Months 1-3:</strong> Essentials Plan Implementation
-                      <p class="text-xs text-gray-600">$189/month - Core HVAC operations</p>
-                    </div>
-                  </div>
-                  <div class="flex items-center">
-                    <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-sm font-bold mr-3">2</div>
-                    <div>
-                      <strong>Months 6-12:</strong> Enterprise Upgrade
-                      <p class="text-xs text-gray-600">Custom pricing - API access enabled</p>
-                    </div>
-                  </div>
-                  <div class="flex items-center">
-                    <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold mr-3">3</div>
-                    <div>
-                      <strong>Year 2+:</strong> Multi-Trade Expansion
-                      <p class="text-xs text-gray-600">Custom integrations and workflows</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Final Statement -->
-          <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-xl text-center">
-            <h3 class="canela text-2xl font-bold mb-4">Strategic Conclusion</h3>
-            <p class="text-lg leading-relaxed mb-4">
-              FieldPulse represents more than software—it's a strategic platform that grows with your vision.
-              While Jobber offers simplicity and ServiceTitan provides enterprise power, only FieldPulse delivers
-              the perfect balance of accessibility, scalability, and customization for a multi-trade future.
-            </p>
-            <p class="text-blue-100">
-              The Open API isn't just a feature; it's your insurance policy against technological obsolescence
-              and your gateway to operational excellence across all service lines.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- References -->
-      <section class="px-4 sm:px-6 md:px-8 py-12 bg-gray-100">
-        <div class="max-w-4xl mx-auto">
-          <h3 class="canela text-2xl font-bold mb-8">References</h3>
-          <div class="grid md:grid-cols-2 gap-4 text-sm">
-            <div class="space-y-2">
-              <div id="ref-260" class="p-3 bg-white rounded border-l-4 border-blue-500">
-                <strong>[260]</strong>
-                <a href="https://buildbite.com/insights/plumbing-job-management-software" class="text-blue-600 hover:underline">BuildBite: Plumbing Job Management Software Analysis</a>
-              </div>
-              <div id="ref-257" class="p-3 bg-white rounded border-l-4 border-blue-500">
-                <strong>[257]</strong>
-                <a href="https://www.taloflow.ai/guides/comparisons/fieldpulsemaidsvc-vs-jobbermaidsvc-fmsoft" class="text-blue-600 hover:underline">Taloflow: FieldPulse vs Jobber Comparison</a>
-              </div>
-              <div id="ref-259" class="p-3 bg-white rounded border-l-4 border-blue-500">
-                <strong>[259]</strong>
-                <a href="https://contractorplus.app/blog/jobber-vs-fieldpulse/" class="text-blue-600 hover:underline">ContractorPlus: Jobber vs FieldPulse Analysis</a>
-              </div>
-              <div id="ref-268" class="p-3 bg-white rounded border-l-4 border-blue-500">
-                <strong>[268]</strong>
-                <a href="https://blog.hubspot.com/marketing/best-crm-for-hvac-businesses" class="text-blue-600 hover:underline">HubSpot: Best CRM for HVAC Businesses</a>
-              </div>
-              <div id="ref-258" class="p-3 bg-white rounded border-l-4 border-blue-500">
-                <strong>[258]</strong>
-                <a href="https://www.fieldpulse.com/resources/blog/technician-scheduling-software" class="text-blue-600 hover:underline">FieldPulse: Technician Scheduling Software Guide</a>
-              </div>
-            </div>
-            <div class="space-y-2">
-              <div id="ref-49" class="p-3 bg-white rounded border-l-4 border-blue-500">
-                <strong>[49]</strong>
-                <a href="https://softwarefinder.com/field-service/housecall-pro" class="text-blue-600 hover:underline">SoftwareFinder: Housecall Pro Review</a>
-              </div>
-              <div id="ref-68" class="p-3 bg-white rounded border-l-4 border-blue-500">
-                <strong>[68]</strong>
-                <a href="https://connecteam.com/reviews/fieldedge/" class="text-blue-600 hover:underline">Connecteam: FieldEdge Review</a>
-              </div>
-              <div id="ref-71" class="p-3 bg-white rounded border-l-4 border-blue-500">
-                <strong>[71]</strong>
-                <a href="https://www.selecthub.com/p/field-service-software/commusoft/" class="text-blue-600 hover:underline">SelectHub: Commusoft Review</a>
-              </div>
-              <div id="ref-38" class="p-3 bg-white rounded border-l-4 border-blue-500">
-                <strong>[38]</strong>
-                <a href="https://softwareconnect.com/reviews/buildops/" class="text-blue-600 hover:underline">SoftwareConnect: BuildOps Review</a>
-              </div>
-              <div id="ref-266" class="p-3 bg-white rounded border-l-4 border-blue-500">
-                <strong>[266]</strong>
-                <a href="https://www.hvacbase.ai/blog/a-complete-guide-to-hvac-project-management-software-for-2025" class="text-blue-600 hover:underline">HVACBase: Complete Software Guide</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    </footer>
 
     <script>
-        // Mobile TOC Toggle
-        const tocToggle = document.getElementById('toc-toggle');
-        const toc = document.querySelector('.toc-fixed');
-        const tocOverlay = document.getElementById('toc-overlay');
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
         
-        tocToggle.addEventListener('click', () => {
-            toc.classList.toggle('open');
-            tocOverlay.classList.toggle('active');
-        });
-
-        // Overlay click to close TOC
-        tocOverlay.addEventListener('click', () => {
-            toc.classList.remove('open');
-            tocOverlay.classList.remove('active');
-        });
-
-        // Close TOC when window is resized to desktop
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 1024) {
-                toc.classList.remove('open');
-                tocOverlay.classList.remove('active');
-            }
-        });
-
-        // Smooth scrolling for TOC links
-        document.querySelectorAll('.toc-link').forEach(link => {
-            link.addEventListener('click', (e) => {
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
                 if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                    // Close mobile TOC
-                    toc.classList.remove('open');
-                    tocOverlay.classList.remove('active');
-                }
-            });
-        });
-
-        // Active section highlighting in TOC
-        const observerOptions = {
-            root: null,
-            rootMargin: '-20% 0px -70% 0px',
-            threshold: 0
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    document.querySelectorAll('.toc-link').forEach(link => {
-                        link.classList.remove('text-blue-600', 'font-semibold');
-                        link.classList.add('text-gray-600');
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
                     });
-                    const activeLink = document.querySelector(`a[href="#${id}"]`);
-                    if (activeLink) {
-                        activeLink.classList.remove('text-gray-600');
-                        activeLink.classList.add('text-blue-600', 'font-semibold');
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
                     }
                 }
             });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section[id]').forEach(section => {
-            observer.observe(section);
         });
     </script>
-  </body>
-
+</body>
 </html>
